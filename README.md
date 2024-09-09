@@ -1,0 +1,1 @@
+# apathetic-hyprland-dotfiles
