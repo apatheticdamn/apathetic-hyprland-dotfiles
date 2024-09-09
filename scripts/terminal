@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+## Copyright (C) 2024 [Your Name]
+##
+## launch Alacritty with various configurations
+
+CONFIG="$HOME/.config/alacritty/alacritty.toml"
+
+if [ "$1" == "-f" ]; then
+    alacritty --config-file="$CONFIG" --class 'alacritty-float' --title 'Alacritty Float'
+elif [ "$1" == "-F" ]; then
+    alacritty --config-file="$CONFIG" --fullscreen --class 'alacritty-full' --title 'Alacritty Full'
+elif [ "$1" == "-s" ]; then
+    # Prompt for window size using a command like slurp or a similar utility
+    SIZE=$(slurp -b 20262CCC -c B4A1DBff -s B4A1DB0D -w 2 -f "%wx%h")
+    alacritty --config-file="$CONFIG" --class 'alacritty-float' --title 'Alacritty Float' \
+        --geometry="$SIZE"
+else
+    alacritty --config-file="$CONFIG"
+fi
+
